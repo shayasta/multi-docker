@@ -18,7 +18,7 @@ after_success:
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push shayasta/multi-client
-  - docker push shayasta/multi-nginx
-  - docker push shayasta/multi-server
-  - docker push shayasta/multi-worker
+  - docker push shayadock/multi-client
+  - docker push shayadock/multi-nginx
+  - docker push shayadock/multi-server
+  - docker push shayadock/multi-worker
