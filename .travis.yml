@@ -5,16 +5,16 @@ services:
   - docker
 
 before_install:
-  - docker build -t shayasta/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t shayadock/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true shayasta/react-test npm test
+  - docker run -e CI=true shayadock/react-test npm test
 
 after_success:
-  - docker build -t shayasta/multi-client ./client
-  - docker build -t shayasta/multi-nginx ./nginx
-  - docker build -t shayasta/multi-server ./server
-  - docker build -t shayasta/multi-worker ./worker
+  - docker build -t shayadock/multi-client ./client
+  - docker build -t shayadock/multi-nginx ./nginx
+  - docker build -t shayadock/multi-server ./server
+  - docker build -t shayadock/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
